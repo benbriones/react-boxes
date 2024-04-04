@@ -13,11 +13,26 @@ function BoxList() {
         setBoxes(boxes =>[...boxes, newBox])
     }
 
+    function deleteBox(evt) {
+        const id = evt.target.parentElement.getAttribute('id');
+        console.log(id);
+        setBoxes(boxes => boxes.filter((box) => box.id !== id));
+    }
+
     return (
         <div className="BoxList">
             <NewBoxForm addBox={addBox} />
             {
-                boxes.map(box => <Box />)
+                boxes.map(box =>
+                <li key={box.id}>
+                    <Box
+                    bgColor={box.bgColor}
+                    width={box.width}
+                    height={box.height}
+                    id={box.id}
+                    deleteBox={deleteBox}
+                    />
+                </li>)
             }
         </div>
     )
