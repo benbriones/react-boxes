@@ -1,7 +1,7 @@
 import './App.css';
 import BoxList from './BoxList'
 
-/** Component for entire page.
+/** Component for entire boxes page.
  *
  * Props: none
  * State: none

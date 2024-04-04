@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-
+/** Form to add a new Box
+ *
+ * Props: addBox (callback function)
+ * State: formData
+ *
+ *
+ */
 function NewBoxForm({ addBox }) {
     const initialState = {
         bgColor: "",
@@ -10,12 +16,14 @@ function NewBoxForm({ addBox }) {
 
     const [formData, setFormData] = useState(initialState);
 
+    /** Handle submit of form to add box */
     function handleSubmit(evt) {
         evt.preventDefault();
         addBox(formData);
         setFormData(initialState);
     }
 
+    /** Handle changes to form  */
     function handleChange(evt) {
         const { name, value } = evt.target;
         setFormData(fData => ({

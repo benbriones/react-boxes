@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import NewBoxForm from "./NewBoxForm.jsx";
-import { v4 as uuid } from 'uuid';
+
+
+/** Component for a single box on page.
+ *
+ * Props:  id, bgColor, width, height, deleteBox
+ * State: none
+ *
+*/
 
 function Box({ id, bgColor, width, height, deleteBox }) {
 
@@ -10,10 +17,16 @@ function Box({ id, bgColor, width, height, deleteBox }) {
         height: `${height}px`
     };
 
+    /** handle remove of a box */
+    function handleRemove(evt) {
+        console.log('clicked')
+        deleteBox(evt.target.id);
+    }
+
     return (
-        <div id={id}>
+        <div>
             <div className="Box" style={style} ></div>
-            <button className="Box-button" onClick={deleteBox}>
+            <button className="Box-button" onClick={handleRemove} id={id}>
                 Delete Box!
             </button>
         </div>
